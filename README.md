@@ -13,21 +13,21 @@ open-source development workflows.
 
 ## 🚀 Features
 
-- 🧠 Rich note editor for structured documentation
-- 👥 Team-based workspaces
-- 🔐 Role-based access control (RBAC)
-- 🔎 Search and indexing for notes
-- 📂 Organized folders and tags
-- 📖 Markdown-friendly documentation
-- 🧪 Scalable backend architecture
+-  Rich note editor for structured documentation
+-  Team-based workspaces
+-  Role-based access control (RBAC)
+-  Search and indexing for notes
+-  Organized folders and tags
+-  Markdown-friendly documentation
+-  Scalable backend architecture
 
 (Optional / Advanced)
-- ⚡ Full-text search
-- 🤖 AI-assisted summaries (future scope)
+-  Full-text search
+-  AI-assisted summaries
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack(preferred)
 
 ### Frontend
 - **Next.js**
@@ -46,26 +46,16 @@ open-source development workflows.
 
 ## 📁 Repository Structure
 
-notenest/
-
-├── frontend/ # Next.js frontend application
-
-├── backend/ # Backend APIs (REST / GraphQL)
-
-├── docs/ # Project documentation
-
-├── .github/ # GitHub workflows & templates
-
-├── README.md
-
-├── CONTRIBUTING.md
-
-├── CODE_OF_CONDUCT.md
-
-├── SECURITY.md
-
-├── ROADMAP.md
-
+notenest/\
+├── frontend/ # frontend application\
+├── backend/ # Backend APIs\
+├── docs/ # Project documentation\
+├── .github/ # GitHub workflows & templates\
+├── README.md\
+├── CONTRIBUTING.md\
+├── CODE_OF_CONDUCT.md\
+├── SECURITY.md\
+├── ROADMAP.md\
 └── OSQ.md
 
 
