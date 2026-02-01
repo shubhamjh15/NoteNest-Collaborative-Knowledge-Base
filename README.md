@@ -1,185 +1,239 @@
-# NoteNest 📝  
-**Collaborative Knowledge Base for Teams**
+# NoteNest 📝
 
-NoteNest is an open-source, team-based knowledge base that allows users to create,
-organize, and collaborate on notes and documentation in real time.  
-It is designed to mirror **industry-grade documentation and collaboration tools**
-used by modern teams.
+> **Collaborative Knowledge Base for Teams**
 
-This project is part of **Open Source Quest (OSQ)** and follows professional
-open-source development workflows.
+NoteNest is an open-source, team-based knowledge base that allows users to create, organize, and collaborate on notes and documentation in real time. It mirrors **industry-grade documentation and collaboration tools** used by modern teams.
 
----
-
-## 🚀 Features
-
--  Rich note editor for structured documentation
--  Team-based workspaces
--  Role-based access control (RBAC)
--  Search and indexing for notes
--  Organized folders and tags
--  Markdown-friendly documentation
--  Scalable backend architecture
-
-(Optional / Advanced)
--  Full-text search
--  AI-assisted summaries
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
+[![Open Source Quest](https://img.shields.io/badge/OSQ-Participant-blue.svg)](OSQ.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
-##  Tech Stack(preferred)
+## ✨ Features
 
-### Frontend
-- **Next.js**
-- **Tailwind CSS**
-- Modern component-based UI
+| Feature | Description |
+|---------|-------------|
+| 📝 **Rich Note Editor** | Structured documentation with Markdown support |
+| 👥 **Team Workspaces** | Collaborative spaces for your team |
+| 🔐 **Role-Based Access** | Fine-grained permissions (Admin, Editor, Viewer) |
+| 🔍 **Search & Indexing** | Find notes quickly with powerful search |
+| 📁 **Organization** | Folders and tags to keep notes organized |
+| 🚀 **Scalable Backend** | Built for performance and growth |
 
-### Backend
-- **Node.js**
-- **REST / GraphQL APIs**
-- Secure authentication & authorization
-
-### Database
-- **MongoDB**
-
----
-
-## 📁 Repository Structure
-
-notenest/\
-├── frontend/ # frontend application\
-├── backend/ # Backend APIs\
-├── docs/ # Project documentation\
-├── .github/ # GitHub workflows & templates\
-├── README.md\
-├── CONTRIBUTING.md\
-├── CODE_OF_CONDUCT.md\
-├── SECURITY.md\
-├── ROADMAP.md\
-└── OSQ.md
-
-
-This structure allows contributors to work independently on
-frontend, backend, or documentation.
+### Coming Soon
+- 🔎 Full-text search
+- 🤖 AI-assisted summaries
 
 ---
 
-## 🧩 Contribution Areas
+## 🛠️ Tech Stack
 
-Contributors can work in multiple areas based on their skillset:
-
-- 🎨 **Editor UI & Frontend**
-- ⚙️ **Backend Note APIs**
-- 🔎 **Search & Indexing**
-- 📚 **Documentation & Guides**
-- 🔐 **Role-Based Access Control**
-- 🧪 **Testing & QA**
-- ⚡ **Performance Improvements**
-
-Each issue is labeled with:
-- Skill area (`frontend`, `backend`, `documentation`, etc.)
-- Difficulty (`good first issue`, `easy`, `medium`, `hard`)
+```
+┌─────────────────────────────────────────────────────────┐
+│                      Frontend                           │
+│   Next.js  •  Tailwind CSS  •  Modern React Components  │
+├─────────────────────────────────────────────────────────┤
+│                      Backend                            │
+│   Node.js  •  REST / GraphQL APIs  •  JWT Auth          │
+├─────────────────────────────────────────────────────────┤
+│                      Database                           │
+│                      MongoDB                            │
+└─────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🛠️ Getting Started (Local Setup)
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v18+ recommended)
-- MongoDB (local or MongoDB Atlas)
-- Git
 
-### Clone the Repository
+Before you begin, ensure you have the following installed:
+
+- **Node.js** v18 or higher ([Download](https://nodejs.org/))
+- **MongoDB** (local) or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account
+- **Git** ([Download](https://git-scm.com/))
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/R3ACTR/NoteNest-Collaborative-Knowledge-Base.git
+   cd NoteNest-Collaborative-Knowledge-Base
+   ```
+
+2. **Set up the Backend**
+
+   ```bash
+   cd backend
+   npm install
+   
+   # Create environment file
+   cp .env.example .env
+   # Edit .env with your MongoDB connection string and other settings
+   
+   npm run dev
+   ```
+
+   The backend will start at `http://localhost:5000`
+
+3. **Set up the Frontend** (in a new terminal)
+
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+   The frontend will start at `http://localhost:3000`
+
+### Environment Variables
+
+Create a `.env` file in the `backend/` directory:
+
+```env
+# MongoDB Connection
+MONGODB_URI=mongodb://localhost:27017/notenest
+
+# JWT Secret (use a strong random string)
+JWT_SECRET=your-secret-key-here
+
+# Server Port
+PORT=5000
+```
+
+---
+
+## 📁 Project Structure
+
+```
+notenest/
+├── frontend/           # Next.js frontend application
+│   ├── components/     # Reusable React components
+│   ├── pages/          # Next.js pages
+│   └── styles/         # Tailwind CSS styles
+│
+├── backend/            # Node.js backend APIs
+│   ├── controllers/    # Request handlers
+│   ├── models/         # MongoDB models
+│   ├── routes/         # API routes
+│   └── middleware/     # Auth & validation middleware
+│
+├── docs/               # Project documentation
+├── .github/            # GitHub workflows & templates
+├── CONTRIBUTING.md     # Contribution guidelines
+├── ROADMAP.md          # Feature roadmap
+└── README.md           # You are here!
+```
+
+---
+
+## 🧩 How to Contribute
+
+We welcome contributions of all sizes! Here's how to get started:
+
+### 1. Find an Issue
+
+Browse our [Issues](https://github.com/R3ACTR/NoteNest-Collaborative-Knowledge-Base/issues) and look for:
+
+| Label | Description |
+|-------|-------------|
+| `good first issue` | Perfect for newcomers |
+| `frontend` | UI/React work |
+| `backend` | API/Node.js work |
+| `documentation` | Docs and guides |
+| `bug` | Something needs fixing |
+
+### 2. Fork & Clone
+
 ```bash
-git clone https://github.com/R3ACTR/NoteNest-Collaborative-Knowledge-Base.git
+# Fork via GitHub UI, then:
+git clone https://github.com/YOUR-USERNAME/NoteNest-Collaborative-Knowledge-Base.git
 cd NoteNest-Collaborative-Knowledge-Base
-```
-## Setup Frontend
-```
-cd frontend
-npm install
-npm run dev
+git checkout -b feature/your-feature-name
 ```
 
-## Setup Frontend
+### 3. Make Your Changes
+
+- Write clean, readable code
+- Add comments where helpful
+- Follow existing code style
+- Test your changes locally
+
+### 4. Submit a Pull Request
+
+```bash
+git add .
+git commit -m "feat: add your feature description"
+git push origin feature/your-feature-name
 ```
-cd backend
-npm install
-npm run dev
-```
-Create a .env file using .env.example and add required variables.
+
+Then open a PR on GitHub with a clear description of your changes.
 
 ---
 
-### 📖 Documentation
+## 📚 Documentation
 
-Detailed documentation is available in the /docs folder:
-
-[Setup](setup.md) – Local setup instructions
-
-
-[Architecture](architecture.md) – System architecture overview
-
-[API](api.md) – API documentation
-
-[Roles-Access](roles-access.md) – Role-based access control
+| Document | Description |
+|----------|-------------|
+| [Setup Guide](docs/setup.md) | Detailed local setup instructions |
+| [Architecture](docs/architecture.md) | System architecture overview |
+| [API Reference](docs/api.md) | API endpoints documentation |
+| [Roles & Access](docs/roles-access.md) | RBAC documentation |
 
 ---
 
-### Security
+## 🔒 Security
 
-Please read our [Security](SECURITY.md) to learn how to responsibly report
-security vulnerabilities.
+Found a security vulnerability? Please read our [Security Policy](SECURITY.md) for responsible disclosure guidelines.
 
-❌ Do not report security issues via public GitHub issues.
+⚠️ **Do NOT report security issues via public GitHub issues.**
 
 ---
 
-### Evaluation (OSQ)
+## 📍 Roadmap
+
+See our [Roadmap](ROADMAP.md) for planned features:
+
+- [x] Core note editor
+- [x] Team workspaces
+- [ ] Full-text search
+- [ ] AI-assisted features
+- [ ] Mobile app
+
+---
+
+## 📊 Evaluation (OSQ)
 
 Contributions are evaluated based on:
 
-Code quality
+- ✅ Code quality and clarity
+- ✅ Documentation
+- ✅ Consistency with project style
+- ✅ Collaboration and communication
 
-Clarity and documentation
-
-Consistency
-
-Collaboration and communication
-
-Quality and learning matter more than quantity.
+**Quality and learning matter more than quantity!**
 
 ---
 
-### Roadmap
+## 📄 License
 
-The planned roadmap can be found in [Roadmap](ROADMAP.md)
-, covering:
-
-Core features
-
-Collaboration enhancements
-
-Search & indexing
-
-Advanced role management.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE.md) file for details.
 
 ---
 
-### License
+## 🙏 Acknowledgements
 
-This project is licensed under the MIT License.
-See the [License](LICENSE.md) file for details.
-
-### Acknowledgements
-
-Open Source Quest (OSQ)
-
-R3ACTR Community
-
-All contributors who help make NoteNest better ❤️.
+- [Open Source Quest (OSQ)](https://github.com/R3ACTR) community
+- All our amazing contributors ❤️
 
 ---
 
-### Happy contributing! 🚀
- 
+<div align="center">
+
+**Happy contributing! 🚀**
+
+[Report Bug](https://github.com/R3ACTR/NoteNest-Collaborative-Knowledge-Base/issues) · [Request Feature](https://github.com/R3ACTR/NoteNest-Collaborative-Knowledge-Base/issues) · [Join Discussion](https://github.com/R3ACTR/NoteNest-Collaborative-Knowledge-Base/discussions)
+
+</div>
