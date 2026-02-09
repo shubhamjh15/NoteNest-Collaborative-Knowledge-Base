@@ -104,9 +104,11 @@ export default function Home() {
 
   return (
     <main 
-      className="min-h-screen text-gray-900 relative overflow-hidden"
+      className="min-h-screen relative overflow-hidden"
       style={{ 
-        background: 'linear-gradient(135deg, #f0f9ff 0%, #ffffff 25%, #faf5ff 50%, #ffffff 75%, #f0f9ff 100%)'
+        color: 'var(--color-text-primary)',
+        background: 'var(--color-background)',
+        backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.06) 0%, transparent 25%, transparent 75%, rgba(139, 92, 246, 0.06) 100%)'
       }}
     >
       {/* Skip to main content link for keyboard navigation */}
@@ -159,10 +161,10 @@ export default function Home() {
       <header 
         className="sticky top-0 z-50 transition-all duration-300 border-b"
         style={{ 
-          background: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.85)',
+          background: 'var(--color-background)',
           backdropFilter: 'blur(20px) saturate(180%)',
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-          borderColor: 'rgba(0, 0, 0, 0.06)',
+          borderColor: 'var(--color-border-light)',
           boxShadow: isScrolled 
             ? '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' 
             : '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03)'
@@ -347,7 +349,7 @@ export default function Home() {
                 marginTop: mobileMenuOpen ? 'var(--space-md)' : '0',
                 paddingTop: mobileMenuOpen ? 'var(--space-md)' : '0',
                 paddingBottom: mobileMenuOpen ? 'var(--space-md)' : '0',
-                background: 'rgba(255, 255, 255, 0.95)',
+                background: 'var(--color-background)',
                 backdropFilter: 'blur(10px)',
                 width: '100%'
               }}
@@ -446,7 +448,7 @@ export default function Home() {
           >
             <span 
               style={{
-                color: 'var(--color-gray-900)',
+                color: 'var(--color-text-primary)',
                 display: 'block'
               }}
             >
@@ -455,7 +457,6 @@ export default function Home() {
             <span 
               className="block"
               style={{
-                color: '#8b5cf6',
                 marginTop: 'clamp(var(--space-sm), 2vw, var(--space-md))',
                 background: 'linear-gradient(135deg, var(--color-info) 0%, #8b5cf6 50%, #a855f7 100%)',
                 WebkitBackgroundClip: 'text',
@@ -470,7 +471,7 @@ export default function Home() {
           <p 
             className="leading-relaxed"
             style={{ 
-              color: '#374151',
+              color: 'var(--color-text-secondary)',
               fontSize: 'clamp(var(--font-size-lg), 2.5vw, var(--font-size-xl))',
               lineHeight: '1.7',
               maxWidth: '768px',
@@ -496,11 +497,11 @@ export default function Home() {
             }}
           >
         <button
-          onClick={() => handleNavigation('/login', 'create-note')}
+          onClick={() => handleNavigation('/notes?new=1', 'create-note')}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              handleNavigation('/login', 'create-note');
+              handleNavigation('/notes?new=1', 'create-note');
             }
           }}
           disabled={isLoading('create-note')}
@@ -521,7 +522,6 @@ export default function Home() {
         >
               <span className="relative z-10 flex items-center gap-2 justify-center">
                 <span className="whitespace-nowrap">Create Your First Note</span>
-                <span className="text-xs sm:text-sm font-normal" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>(Coming Soon)</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 opacity-80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -547,7 +547,7 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = '0 8px 20px -5px rgba(59, 130, 246, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.1)';
               }}
               onBlur={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
+                e.currentTarget.style.background = 'var(--color-background)';
                 e.currentTarget.style.color = 'var(--color-info)';
                 e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 e.currentTarget.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 3px 0 rgba(0, 0, 0, 0.02)';
@@ -558,7 +558,7 @@ export default function Home() {
                 fontSize: 'clamp(var(--font-size-base), 2vw, var(--font-size-lg))',
                 fontWeight: 'var(--font-weight-semibold)',
                 padding: 'clamp(0.875rem, 2.5vw, 1rem) clamp(1.75rem, 5vw, 2rem)',
-                background: 'rgba(255, 255, 255, 0.95)',
+                background: 'var(--color-background)',
                 boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 3px 0 rgba(0, 0, 0, 0.02)',
                 minHeight: '48px',
                 minWidth: 'clamp(200px, 40vw, 240px)',
@@ -575,7 +575,7 @@ export default function Home() {
                 e.currentTarget.style.cursor = 'pointer';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
+                e.currentTarget.style.background = 'var(--color-background)';
                 e.currentTarget.style.color = 'var(--color-info)';
                 e.currentTarget.style.borderColor = 'var(--color-info)';
                 e.currentTarget.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 3px 0 rgba(0, 0, 0, 0.02)';
@@ -612,23 +612,21 @@ export default function Home() {
             <div 
               className="flex items-center gap-2.5 sm:gap-3 rounded-lg transition-all duration-200 cursor-default"
               style={{ 
-                background: 'rgba(255, 255, 255, 0.9)',
-                border: '1px solid rgba(0, 0, 0, 0.08)',
+                background: 'var(--color-background)',
+                border: '1px solid var(--color-border-light)',
                 padding: 'clamp(0.625rem, 2.5vw, 0.875rem) clamp(1rem, 4vw, 1.5rem)',
                 boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 3px 0 rgba(0, 0, 0, 0.02)',
                 minHeight: '40px'
               }}
             >
               <div 
-                className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-sm flex-shrink-0"
-                style={{
-                  boxShadow: '0 0 0 2px rgba(34, 197, 94, 0.1)'
-                }}
+                className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                style={{ background: 'var(--color-success)', boxShadow: '0 0 0 2px rgba(34, 197, 94, 0.2)' }}
               ></div>
               <span 
                 className="text-sm font-semibold whitespace-nowrap"
                 style={{ 
-                  color: '#1f2937',
+                  color: 'var(--color-text-primary)',
                   fontWeight: 'var(--font-weight-semibold)',
                   fontSize: 'clamp(var(--font-size-xs), 2vw, var(--font-size-sm))'
                 }}
@@ -639,8 +637,8 @@ export default function Home() {
             <div 
               className="flex items-center gap-2.5 sm:gap-3 rounded-lg transition-all duration-200 cursor-default"
               style={{ 
-                background: 'rgba(255, 255, 255, 0.9)',
-                border: '1px solid rgba(0, 0, 0, 0.08)',
+                background: 'var(--color-background)',
+                border: '1px solid var(--color-border-light)',
                 padding: 'clamp(0.625rem, 2.5vw, 0.875rem) clamp(1rem, 4vw, 1.5rem)',
                 boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 3px 0 rgba(0, 0, 0, 0.02)',
                 minHeight: '40px'
@@ -658,7 +656,7 @@ export default function Home() {
               <span 
                 className="text-sm font-semibold whitespace-nowrap"
                 style={{ 
-                  color: '#1f2937',
+                  color: 'var(--color-text-primary)',
                   fontWeight: 'var(--font-weight-semibold)',
                   fontSize: 'clamp(var(--font-size-xs), 2vw, var(--font-size-sm))'
                 }}
@@ -676,7 +674,8 @@ export default function Home() {
         id="features"
         className="relative scroll-mt-20 overflow-hidden"
         style={{ 
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 250, 251, 0.95) 25%, rgba(240, 249, 255, 0.92) 50%, rgba(250, 245, 255, 0.95) 75%, rgba(255, 255, 255, 0.98) 100%)',
+          background: 'var(--color-background)',
+          backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.04) 0%, transparent 50%, rgba(139, 92, 246, 0.04) 100%)',
           paddingTop: 'clamp(var(--space-2xl), 6vw, var(--space-3xl))',
           paddingBottom: 'clamp(var(--space-2xl), 6vw, var(--space-3xl))',
           borderTop: '1px solid var(--color-border-light)',
@@ -764,7 +763,7 @@ export default function Home() {
             <p 
               className="font-medium"
               style={{ 
-                color: '#4b5563',
+                color: 'var(--color-text-secondary)',
                 fontSize: 'clamp(var(--font-size-lg), 2vw, var(--font-size-xl))',
                 maxWidth: '720px',
                 lineHeight: '1.7',
@@ -817,7 +816,8 @@ export default function Home() {
         style={{ 
           paddingTop: 'clamp(var(--space-2xl), 6vw, var(--space-3xl))',
           paddingBottom: 'clamp(var(--space-2xl), 6vw, var(--space-3xl))',
-          background: 'linear-gradient(135deg, rgba(240, 249, 255, 0.7) 0%, rgba(255, 255, 255, 0.9) 25%, rgba(250, 245, 255, 0.8) 50%, rgba(255, 255, 255, 0.9) 75%, rgba(240, 249, 255, 0.7) 100%)'
+          background: 'var(--color-background)',
+          backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 50%, rgba(139, 92, 246, 0.05) 100%)'
         }}
       >
         {/* Decorative background elements */}
@@ -878,7 +878,7 @@ export default function Home() {
                   marginBottom: 'var(--space-xl)'
                 }}
               >
-                <span style={{ color: '#1f2937' }}>
+                <span style={{ color: 'var(--color-text-primary)' }}>
                   Built for{" "}
                 </span>
                 <span 
@@ -899,7 +899,7 @@ export default function Home() {
               <p 
                 className="leading-relaxed mb-8"
                 style={{ 
-                  color: '#374151',
+                  color: 'var(--color-text-secondary)',
                   fontSize: 'clamp(var(--font-size-lg), 2vw, var(--font-size-xl))',
                   lineHeight: '1.75',
                   fontWeight: 'var(--font-weight-medium)',
@@ -908,7 +908,7 @@ export default function Home() {
                 }}
               >
                 NoteNest combines the best of documentation tools with real-time collaboration. 
-                Whether you're a startup or an <strong style={{ color: '#1f2937' }}>enterprise</strong>, we've got you covered.
+                Whether you're a startup or an <strong style={{ color: 'var(--color-text-primary)' }}>enterprise</strong>, we've got you covered.
               </p>
               <ul 
                 style={{ gap: 'var(--space-lg)' }} 
@@ -933,9 +933,9 @@ export default function Home() {
                     </span>
                   </div>
                   <span 
-                    className="text-lg font-semibold pt-1.5 transition-colors duration-300 group-hover:text-gray-900"
+                    className="text-lg font-semibold pt-1.5 transition-colors duration-300 group-hover:opacity-90"
                     style={{ 
-                      color: '#1f2937',
+                      color: 'var(--color-text-primary)',
                       lineHeight: '1.6',
                       fontSize: 'var(--font-size-lg)',
                       fontWeight: 'var(--font-weight-semibold)',
@@ -964,9 +964,9 @@ export default function Home() {
                     </span>
                   </div>
                   <span 
-                    className="text-lg font-semibold pt-1.5 transition-colors duration-300 group-hover:text-gray-900"
+                    className="text-lg font-semibold pt-1.5 transition-colors duration-300 group-hover:opacity-90"
                     style={{ 
-                      color: '#1f2937',
+                      color: 'var(--color-text-primary)',
                       lineHeight: '1.6',
                       fontSize: 'var(--font-size-lg)',
                       fontWeight: 'var(--font-weight-semibold)',
@@ -995,9 +995,9 @@ export default function Home() {
                     </span>
                   </div>
                   <span 
-                    className="text-lg font-semibold pt-1.5 transition-colors duration-300 group-hover:text-gray-900"
+                    className="text-lg font-semibold pt-1.5 transition-colors duration-300 group-hover:opacity-90"
                     style={{ 
-                      color: '#1f2937',
+                      color: 'var(--color-text-primary)',
                       lineHeight: '1.6',
                       fontSize: 'var(--font-size-lg)',
                       fontWeight: 'var(--font-weight-semibold)',
@@ -1013,9 +1013,9 @@ export default function Home() {
               <div 
                 className="rounded-2xl relative overflow-hidden"
                 style={{ 
-                  background: 'rgba(255, 255, 255, 0.95)',
+                  background: 'var(--color-background)',
                   padding: 'clamp(var(--space-lg), 4vw, var(--space-2xl))',
-                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                  border: '1px solid var(--color-border-light)',
                   boxShadow: '0 2px 8px -2px rgba(0, 0, 0, 0.06), 0 1px 3px -1px rgba(0, 0, 0, 0.03)'
                 }}
               >
@@ -1057,9 +1057,7 @@ export default function Home() {
                 {/* Additional Info */}
                 <div 
                   className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t text-center"
-                  style={{ 
-                    borderColor: 'rgba(0, 0, 0, 0.08)'
-                  }}
+                  style={{ borderColor: 'var(--color-border-light)' }}
                 >
                   <p 
                     className="text-xs sm:text-sm font-medium mb-2"
@@ -1068,11 +1066,11 @@ export default function Home() {
                     Trusted by teams at
                   </p>
                   <div className="flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
-                    <div className="text-lg sm:text-2xl font-bold" style={{ color: '#6b7280' }}>TechCorp</div>
-                    <div className="w-1 h-1 rounded-full hidden sm:block" style={{ background: '#9ca3af' }}></div>
-                    <div className="text-lg sm:text-2xl font-bold" style={{ color: '#6b7280' }}>StartupXYZ</div>
-                    <div className="w-1 h-1 rounded-full hidden sm:block" style={{ background: '#9ca3af' }}></div>
-                    <div className="text-lg sm:text-2xl font-bold" style={{ color: '#6b7280' }}>DevTeam</div>
+                    <div className="text-lg sm:text-2xl font-bold" style={{ color: 'var(--color-text-muted)' }}>TechCorp</div>
+                    <div className="w-1 h-1 rounded-full hidden sm:block" style={{ background: 'var(--color-text-muted)' }}></div>
+                    <div className="text-lg sm:text-2xl font-bold" style={{ color: 'var(--color-text-muted)' }}>StartupXYZ</div>
+                    <div className="w-1 h-1 rounded-full hidden sm:block" style={{ background: 'var(--color-text-muted)' }}></div>
+                    <div className="text-lg sm:text-2xl font-bold" style={{ color: 'var(--color-text-muted)' }}>DevTeam</div>
                   </div>
                 </div>
               </div>
@@ -1119,13 +1117,12 @@ export default function Home() {
             <h3 
               className="mb-6"
               style={{ 
-                color: '#0f172a',
+                color: 'var(--color-text-primary)',
                 fontSize: 'clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl))',
                 fontWeight: '800',
                 lineHeight: '1.15',
                 letterSpacing: '-0.025em',
                 marginBottom: 'var(--space-xl)',
-                textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)',
                 width: '100%',
                 textAlign: 'center'
               }}
@@ -1135,7 +1132,7 @@ export default function Home() {
             <p 
               className="mb-10"
               style={{ 
-                color: '#4b5563',
+                color: 'var(--color-text-secondary)',
                 fontSize: 'clamp(var(--font-size-lg), 2.5vw, var(--font-size-xl))',
                 maxWidth: '720px',
                 lineHeight: '1.75',
@@ -1415,10 +1412,8 @@ function Feature({
       className={`group relative rounded-2xl transition-all duration-300 overflow-hidden card-enter ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
       style={{ 
         transitionDelay: `${delay}ms`,
-        background: isHovered 
-          ? 'rgba(255, 255, 255, 1)'
-          : 'rgba(255, 255, 255, 0.95)',
-        border: `1px solid ${isHovered ? 'rgba(59, 130, 246, 0.15)' : 'rgba(0, 0, 0, 0.08)'}`,
+        background: 'var(--color-background)',
+        border: `1px solid ${isHovered ? 'rgba(59, 130, 246, 0.25)' : 'var(--color-border-light)'}`,
         boxShadow: isHovered 
           ? '0 4px 12px -4px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04)'
           : '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03)',
@@ -1490,9 +1485,7 @@ function Feature({
         <h4 
           className="font-bold transition-all duration-300 mb-4"
           style={{ 
-            color: isHovered 
-              ? '#2563eb' 
-              : '#111827',
+            color: isHovered ? 'var(--color-info)' : 'var(--color-text-primary)',
             fontSize: 'clamp(var(--font-size-xl), 3vw, var(--font-size-2xl))',
             fontWeight: 'var(--font-weight-bold)',
             transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
@@ -1507,7 +1500,7 @@ function Feature({
           <p 
             className="leading-relaxed transition-colors duration-300"
             style={{ 
-              color: isHovered ? '#374151' : '#4b5563',
+              color: isHovered ? 'var(--color-text-secondary)' : 'var(--color-text-muted)',
               fontSize: 'clamp(var(--font-size-base), 1.5vw, var(--font-size-lg))',
               lineHeight: '1.7',
               letterSpacing: '-0.01em',
@@ -1559,11 +1552,9 @@ function StatCard({
         style={{ 
           transitionDelay: `${delay}ms`,
           padding: 'clamp(var(--space-md), 3vw, var(--space-lg))',
-          background: isHovered
-          ? 'rgba(255, 255, 255, 1)'
-          : 'rgba(255, 255, 255, 0.9)',
+          background: 'var(--color-background)',
           borderRadius: 'var(--space-md)',
-          border: `1px solid ${isHovered ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0.08)'}`,
+          border: `1px solid ${isHovered ? 'var(--color-border-medium)' : 'var(--color-border-light)'}`,
           boxShadow: isHovered
           ? '0 2px 8px -2px rgba(0, 0, 0, 0.06), 0 1px 3px -1px rgba(0, 0, 0, 0.04)'
           : '0 1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 3px 0 rgba(0, 0, 0, 0.02)',

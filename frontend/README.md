@@ -33,6 +33,36 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## ⌨️ Keyboard Shortcuts & Command Palette
+
+### Command palette (⌘K / Ctrl+K)
+
+Press **Ctrl+K** (Windows/Linux) or **Cmd+K** (macOS) from anywhere in the app to open the **command palette**. It provides fast navigation and actions without using the mouse.
+
+- **Search:** Type to filter commands by name or keywords.
+- **Navigate:** Use **↑** and **↓** to move, **Enter** to run the selected command.
+- **Close:** Press **Esc** or **Ctrl+K** / **Cmd+K** again.
+
+**Default commands (MVP):**
+
+| Command              | Action                          |
+| -------------------- | ------------------------------- |
+| Create New Note      | Go to Notes and open create modal |
+| Go to Notes          | Navigate to Notes page          |
+| Go to Folders        | Placeholder (navigates to Notes) |
+| Focus Search         | Focus the main search input     |
+| Help / Shortcuts     | Placeholder for shortcuts help   |
+
+The palette is built to be **extensible**: you can pass a custom `commands` prop to `<CommandPalette />` or extend the default list so new features can plug in easily.
+
+### Other shortcuts
+
+- **/** – Focus search (when on a page that has search).
+- **N** – Create note (when on Dashboard or Notes).
+- **Esc** – Close overlays / clear focus.
+
+---
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
