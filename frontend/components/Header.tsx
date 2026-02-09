@@ -1,22 +1,30 @@
 "use client";
 
+import React from "react";
+
 interface HeaderProps {
   title?: string;
   /** When true, shows a search input that can be focused with / shortcut */
   showSearch?: boolean;
+  /** Optional node rendered on the right (e.g. Create Note button) */
+  action?: React.ReactNode;
 }
 
-export default function Header({ title = "Dashboard", showSearch = false }: HeaderProps) {
+export default function Header({
+  title = "Dashboard",
+  showSearch = false,
+  action,
+}: HeaderProps) {
   return (
     <header
-      className="flex items-center gap-4 border-b p-4"
+      className="flex items-center gap-4 border-b px-6 py-4"
       style={{
         background: "var(--color-background)",
         borderColor: "var(--color-border-light)",
       }}
     >
       <h1
-        className="text-lg font-semibold shrink-0"
+        className="text-xl font-semibold shrink-0"
         style={{ color: "var(--color-text-primary)" }}
       >
         {title}
@@ -27,7 +35,7 @@ export default function Header({ title = "Dashboard", showSearch = false }: Head
           data-shortcut="search"
           placeholder="Search notes…"
           aria-label="Search notes"
-          className="max-w-xs w-full rounded-lg border px-3 py-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1"
+          className="flex-1 max-w-md rounded-lg border px-3 py-2 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[var(--color-info)]"
           style={{
             borderColor: "var(--color-border-light)",
             color: "var(--color-text-primary)",
@@ -36,6 +44,7 @@ export default function Header({ title = "Dashboard", showSearch = false }: Head
           }}
         />
       )}
+      {action && <div className="shrink-0 ml-auto">{action}</div>}
     </header>
   );
 }
