@@ -357,7 +357,8 @@ export default function NotesPage() {
                 <button
                   type="button"
                   onClick={() => setViewingNote(note)}
-                  className="flex-1 min-w-0 py-4 pr-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-[var(--color-info)] rounded-lg"
+                  className="flex-1 min-w-0 py-4 pr-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 rounded-lg"
+                  style={{ "--tw-ring-color": "var(--color-info)" } as React.CSSProperties}
                 >
                   <span className="font-semibold block truncate" style={{ color: "var(--color-text-primary)", fontSize: "var(--font-size-base)" }}>
                     {note.title}
