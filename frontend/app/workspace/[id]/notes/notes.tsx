@@ -41,7 +41,7 @@ export default function WorkspaceNotesPage({ workspaceId }: { workspaceId: strin
   const [editContent, setEditContent] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [socket, setSocket] = useState<Socket | null>(null);
-  const [activeUsers, setActiveUsers] = useState<any[]>([]);
+  const [activeUsers, setActiveUsers] = useState<{ _id: string; name: string }[]>([]);
   const createButtonRef = useRef<HTMLButtonElement>(null);
 
   // Load notes from API
@@ -92,7 +92,7 @@ export default function WorkspaceNotesPage({ workspaceId }: { workspaceId: strin
       });
 
       newSocket.on("active-users", (users) => {
-        setActiveUsers(users);
+        setActiveUsers(users.map((u: any) => ({ userId: u._id, name: u.name })));
       });
 
       newSocket.on("user-joined", (data) => {
@@ -100,7 +100,7 @@ export default function WorkspaceNotesPage({ workspaceId }: { workspaceId: strin
       });
 
       newSocket.on("user-left", (data) => {
-        setActiveUsers((prev) => prev.filter((u) => u._id !== data.userId));
+        setActiveUsers((prev) => prev.filter((u) => u.userId !== data.userId));
       });
 
       newSocket.on("note-updated", (data) => {

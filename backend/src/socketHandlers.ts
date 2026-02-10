@@ -37,7 +37,7 @@ export default function setupSocketHandlers(io: SocketIOServer) {
 
       // Validate workspace access
       const workspace = await Workspace.findById(workspaceId);
-      if (!workspace || !workspace.members.includes(socket.userId!)) {
+      if (!workspace || !workspace.members.some(m => m.userId === socket.userId!)) {
         socket.emit("error", { message: "Access denied" });
         return;
       }
@@ -60,11 +60,12 @@ export default function setupSocketHandlers(io: SocketIOServer) {
 
       // Send current active users
       const activeUserIds = Array.from(activeUsers.get(noteId)!);
-      const users = await User.find({ _id: { $in: activeUserIds } }).select("name");
+      const users = await User.find({ _id: { $in: activeUserIds } }).select("_id name");
       socket.emit("active-users", users);
 
       // Broadcast to others in the room
-      socket.to(`note-${noteId}`).emit("user-joined", { userId: socket.userId, name: (await User.findById(socket.userId))?.name });
+      const user = await User.findById(socket.userId);
+      socket.to(`note-${noteId}`).emit("user-joined", { userId: socket.userId, name: user?.name });
 
       console.log(`User ${socket.userId} joined note ${noteId}`);
     });
