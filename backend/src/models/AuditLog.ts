@@ -13,7 +13,7 @@ export interface IAuditLog extends Document {
 const AuditLogSchema: Schema = new Schema({
   action: { type: String, required: true },
   actor: { type: String, required: true },
-  workspaceId: { type: String, required: true },
+  workspaceId: { type: String, required: false },
   target: { type: String, required: true },
   targetType: { type: String, required: true },
   timestamp: { type: Date, default: Date.now },
