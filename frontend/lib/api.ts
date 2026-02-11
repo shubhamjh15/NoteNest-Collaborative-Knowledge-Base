@@ -30,6 +30,8 @@ import {
 } from '../../shared/types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const SOCKET_URL = process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:5002';
+
 if (!API_BASE_URL) {
   throw new Error('NEXT_PUBLIC_API_URL environment variable is not set. Please create a .env file based on .env.example.');
 }
