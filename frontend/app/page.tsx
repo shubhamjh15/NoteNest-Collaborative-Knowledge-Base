@@ -4,6 +4,7 @@ import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import SocialProof from "@/components/landing/SocialProof";
+import BestPractices from "@/components/landing/BestPractices";
 import { useUserRole } from "@/contexts/UserRoleContext";
 import Link from "next/link";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Features />
       <SocialProof />
+      <BestPractices />
       
       {/* 
         Legacy sections commented out to focus on the new Design Request.
